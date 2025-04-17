@@ -3,7 +3,7 @@ import React from "react";
 import { Button, ButtonProps } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
-interface PiButtonProps extends ButtonProps {
+interface PiButtonProps extends Omit<ButtonProps, 'variant'> {
   variant?: "primary" | "secondary" | "gold";
   isLoading?: boolean;
   iconLeft?: React.ReactNode;
@@ -36,6 +36,7 @@ const PiButton: React.FC<PiButtonProps> = ({
         isLoading && "opacity-80 pointer-events-none",
         className
       )}
+      variant={undefined}
       disabled={isLoading || disabled}
       {...props}
     >
